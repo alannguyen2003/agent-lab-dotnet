@@ -42,11 +42,31 @@ Pick one that speaks to you:
 
 ✅ **Result:** Frontend and CSS utility instructions combine to build a beautiful design.
 
----
 
 ## 📝 Task 2: Keep Instructions Updated
 
 When you make major architecture, design, or dependency changes, update your instructions!
+- Current theme: Dark Neon (implemented)
+
+Design tokens (Dark Neon):
+
+```
+--bg: #05060a;
+--panel: #0b1220;
+--muted: #94a3b8;
+--fg: #e6f7ff;
+--accent: #00f0ff;
+--accent-2: #ff00d6;
+--success: #00ff9c;
+--danger: #ff5c7a;
+--radius: 12px;
+--shadow-glow: 0 10px 40px rgba(0,240,255,0.06), 0 4px 16px rgba(255,0,214,0.04);
+```
+
+Notes:
+- Fonts: Orbitron + Rajdhani loaded via Google Fonts in `wwwroot/index.html`.
+- Theme toggle persisted to `localStorage` and exposed via `window.theme` helper.
+- Components updated to use `.panel`, `.neon-text`, and `.text-muted` utilities. 
 
 ### Steps
 

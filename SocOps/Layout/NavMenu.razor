@@ -1,9 +1,14 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">SocOps</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+﻿@inject SocOps.Services.ThemeService ThemeService
+
+<div class="top-row ps-3 navbar navbar-dark panel px-4 py-3 d-flex justify-between items-center" role="navigation" aria-label="Main navigation">
+    <div class="container-fluid flex items-center justify-between">
+        <a class="navbar-brand neon-text" href="">SocOps</a>
+        <div class="d-flex items-center">
+            <button title="Toggle theme" class="btn p-2 neon-text" @onclick="OnToggleTheme" aria-pressed="false">Theme</button>
+            <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
     </div>
 </div>
 
@@ -35,5 +40,16 @@
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ThemeService.InitializeAsync();
+    }
+
+    private async Task OnToggleTheme()
+    {
+        await ThemeService.ToggleAsync();
+        StateHasChanged();
     }
 }
